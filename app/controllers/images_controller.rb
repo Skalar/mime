@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
   before_filter :force_request_format_to_html, only: [:create]
   before_filter :find_article, only: [:index, :create, :update]
   before_filter :article_not_found, only: [:index]
+  before_filter :prevent_anonymous, :only => [:index, :create, :update]
 
   cache_sweeper :article_sweeper, only: [:update]
 

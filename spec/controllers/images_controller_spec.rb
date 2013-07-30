@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ImagesController do
+  login_user
 
   let(:article) { Factory(:article) }
 
@@ -37,6 +38,8 @@ describe ImagesController do
 
   describe "#create" do
     before do
+      sign_out controller.current_user
+
       post :create, file: ActionDispatch::Http::UploadedFile.new({
         filename: 'png.png',
         content_type: 'image/png',
@@ -44,20 +47,16 @@ describe ImagesController do
       }), article_id: article.to_param
     end
 
-    it "is successful" do
-      response.should be_success
+    it "is redirect" do
+      response.should redirect_to(root_path)
     end
 
-    it "returns an image form" do
-      response.should render_template("edit")
+    it "assigns an alert" do
+      flash[:alert].should be_present
     end
 
-    it "does not assign a user" do
-      assigns(:image).user.should be_nil
-    end
-
-    it "does not assign an author" do
-      assigns(:image).author.should be_nil
+    it "doesn't create the image" do
+      Image.count.should eq(0)
     end
   end
 

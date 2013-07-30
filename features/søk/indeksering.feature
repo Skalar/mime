@@ -22,7 +22,7 @@ Egenskap: Artikler skal indekseres
     Og jeg trykker "Søk"
     Så skal jeg ikke se "Foo"
   
-  @search
+  @search @log_in_user
   Scenario: endre artikkel
     Gitt at artikkelen "Foo" finnes
     Og jeg står på artikkelredigering for "Foo"

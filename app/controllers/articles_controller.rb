@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   before_filter :article_not_found, :only => [:show, :edit, :update, :destroy]
   before_filter :redirect_to_canonical_url, :only => [:show]
   before_filter :add_ip_to_params, :only => [:create, :update]
-  after_filter :login_teaser, :only => [:new, :edit]
+  before_filter :prevent_anonymous, :only => [:new, :create, :edit, :update]
   helper_method :sort_column, :sort_direction
 
   cache_sweeper :article_sweeper
@@ -116,12 +116,6 @@ class ArticlesController < ApplicationController
 
   def add_ip_to_params
     params[:article][:ip] = request.remote_ip
-  end
-
-  def login_teaser
-    unless user_signed_in?
-      flash.notice = t('articles.login_teaser_html', :login_link => self.class.helpers.link_to(t('articles.login_link'), user_omniauth_authorize_path(:facebook)))
-    end
   end
 
   def clear_flash

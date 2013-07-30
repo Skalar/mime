@@ -28,6 +28,14 @@ class ApplicationController < ActionController::Base
   end
   
   private
+
+  def prevent_anonymous
+    unless user_signed_in?
+      flash.alert = t('articles.login_teaser_html', :login_link => self.class.helpers.link_to(t('articles.login_link'), user_omniauth_authorize_path(:facebook)))
+      set_user_return_to(url_for(params.slice(:id, :controller, :action)))
+      redirect_to(request.env["HTTP_REFERER"] || root_path)
+    end
+  end
   
   def handle_mobile
     request.format = :mobile if is_mobile_view?

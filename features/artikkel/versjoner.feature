@@ -1,5 +1,7 @@
 # encoding: utf-8
 # language: no
+
+@stub_user
 Egenskap: Versjonering av artikler
 
   For at leksikonet skal få artikler med god kvalitet
@@ -7,7 +9,8 @@ Egenskap: Versjonering av artikler
   Vil jeg kunne versjonere artikler
 
   Bakgrunn:
-    Gitt at jeg står på ny artikkel-siden
+    Gitt at jeg er logget inn
+    Og jeg står på ny artikkel-siden
     Og jeg fyller inn "article[headword]" med "Foo"
     Og jeg trykker "Opprett"
 
@@ -16,15 +19,15 @@ Egenskap: Versjonering av artikler
     Når jeg klikker "Versjonslogg"
     Så skal jeg komme til versjonsloggen for "Foo"
     Og jeg skal se "bare én versjon"
-    Og jeg skal se "127.0.0.1" under ".current"
+    Og jeg skal se "Navn Navnesen" under ".current"
 
   Scenario: to versjoner
     Gitt at jeg står på artikkelredigering for "Foo"
     Og jeg trykker "Lagre"
     Og jeg klikker "Versjonslogg"
     Så skal jeg se "2 versjoner"
-    Og jeg skal se "127.0.0.1" under ".current"
-    Og jeg skal se "127.0.0.1" under ".version-number-1"
+    Og jeg skal se "Navn Navnesen" under ".current"
+    Og jeg skal se "Navn Navnesen" under ".version-number-1"
 
   Scenario: flere versjoner
     Gitt at jeg står på artikkelredigering for "Foo"
