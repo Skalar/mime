@@ -5,7 +5,11 @@ namespace :mime do
       puts "Clearing indices"
       Article.remove_all_from_index
       puts "Re-indexing articles. Each dot is 100 articles staged for re-indexing"
-      Article.all.each_with_index{|a, idx| a.index; print "." if idx % 100 == 0}
+      per_batch = 100
+      0.step(Article.count, per_batch) do |offset|
+        Article.limit(per_batch).skip(offset).each { |article| article.index }
+        print '.' # per 100 articles
+      end
       puts "\n#{Article.count} articles reindex"
       puts "Commiting to Solr"
       Sunspot.commit
