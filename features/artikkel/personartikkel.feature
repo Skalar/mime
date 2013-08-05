@@ -6,6 +6,7 @@ Egenskap: Redigere artikler
   Som en lokalinteressert person
   Vil jeg kunne merke en artikkel som en personartikkel
 
+  @log_in_user
   Scenario: merke som personartikkel
     Gitt at artikkelen "Bar, Foo" finnes
     Og jeg står på artikkelredigering for "Bar, Foo"

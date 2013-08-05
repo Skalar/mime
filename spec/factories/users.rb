@@ -1,6 +1,6 @@
 Factory.define :user do |u|
   u.name 'Navn Navnesen'
-  u.email 'nn@example.com'
+  u.sequence(:email) { |n| "#{n}@example.com" }
   u.password Devise.friendly_token
 end
 

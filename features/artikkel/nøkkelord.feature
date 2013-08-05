@@ -11,6 +11,7 @@ Egenskap: Nøkkelord på artikler
     Når jeg står på artikkelvisning for "Foo"
     Så skal jeg se "ingen nøkkelord" i nøkkelord-seksjonen
 
+  @log_in_user
   Scenario: opprette nøkkelord på en artikkel
     Gitt at artikkelen "Foo" finnes
     Og jeg står på artikkelredigering for "Foo"

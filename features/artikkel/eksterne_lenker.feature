@@ -11,12 +11,14 @@ Egenskap: Eksterne lenker i artikler
     Når jeg står på artikkelvisning for "Foo"
     Så skal jeg ikke se eksterne lenker
 
+  @log_in_user
   Scenario: ingen eksterne lenker i ny artikkel
     Gitt at jeg står på ny artikkel-siden
     Og jeg fyller inn "article[headword]" med "Xyzzy-tittel"
     Når jeg trykker "Opprett"
     Så skal jeg ikke se eksterne lenker
 
+  @log_in_user
   Scenario: opprette eksterne lenker i en artikkel
     Gitt at artikkelen "Foo" finnes
     Og jeg står på artikkelredigering for "Foo"
@@ -25,7 +27,7 @@ Egenskap: Eksterne lenker i artikler
     Og jeg trykker "Lagre"
     Så skal jeg se "Dette er en ekstern lenke til Budstikka" under ".external-links"
 
-  @javascript
+  @javascript @log_in_user
   Scenario: legge til flere felter for eksterne lenker
     Gitt at artikkelen "Foo" finnes
     Og jeg står på artikkelredigering for "Foo"

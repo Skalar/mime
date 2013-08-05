@@ -1,5 +1,7 @@
 # encoding: utf-8
 # language: no
+
+@log_in_editor
 Egenskap: Liste basert på nøkkelord
 
   For at leksikonet skal fremstå som interessant og med mye innhold
@@ -18,7 +20,7 @@ Egenskap: Liste basert på nøkkelord
       | Maridalsveien | vei       |
       | Oslo gate     | gate      |
 
-  @log_in_editor @javascript
+  @javascript
   Scenario: Ny nøkkelord-liste
     Når jeg klikker "Ny liste basert på nøkkelord"
     Og jeg fyller inn "Navn" med "Veier"
@@ -30,7 +32,7 @@ Egenskap: Liste basert på nøkkelord
     Så skal jeg se "Parkveien"
     Men jeg skal ikke se "Oslo gate"
 
-  @log_in_editor @javascript
+  @javascript
   Scenario: Ny nøkkelord-liste som slettes før side lagres
     Når jeg klikker "Ny liste basert på nøkkelord"
     Og jeg fyller inn "Navn" med "Veier"
@@ -39,13 +41,11 @@ Egenskap: Liste basert på nøkkelord
     Når jeg trykker "Lagre"
     Så skal jeg ikke se "Veier"
 
-  @log_in_editor
   Scenario: Mangler navn
     Når jeg klikker "Ny liste basert på nøkkelord"
     Og jeg trykker "Opprett"
     Så skal jeg se "Lista må nok ha et navn"
 
-  @log_in_editor
   Scenario: Mangler nøkkelord
     Når jeg klikker "Ny liste basert på nøkkelord"
     Og jeg fyller inn "Navn" med "Veier"

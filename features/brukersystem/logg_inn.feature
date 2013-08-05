@@ -21,12 +21,11 @@ Egenskap: Logge inn med Facebook-konto
     Og jeg skal se "Logg inn"
 
   @javascript
-  Scenario: få beskjed om at du kan logge inn når du redigerer en artikkel
+  Scenario: få beskjed om at jeg må logge inn når prøver å redigere en artikkel
     Gitt at artikkelen "Foo" finnes
     Og at jeg står på artikkelvisning for "Foo"
     Når jeg klikker "Rediger"
-    Så skal jeg komme til artikkelredigering for "Foo"
-    Og jeg skal se "logge inn"
+    Så skal jeg se "Du er nødt til å logge inn for å bidra til leksikonet." under "#alert"
 
   @stub_user @javascript
   Scenario: bli sendt til artikkelredigering når man logger inn fra artikkelredigering

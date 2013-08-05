@@ -6,6 +6,7 @@ Egenskap: Ny artikkel med oppslagsord
   Som en lokalinteressert person
   Vil jeg kunne opprette artikler som oppslagsord utfylt
 
+  @log_in_user
   Scenario: opprette ny artikkel
     Når jeg går til ny artikkel-siden for "Foo"
     Så skal jeg se "Foo" i oppslagsord-feltet

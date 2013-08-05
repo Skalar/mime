@@ -61,7 +61,7 @@ gem 'sax-machine'
 gem 'escape_utils' # A way to silence stupid stupid stupid Rack::Utils::escape
 
 # Production level debugging
-gem 'exceptional'
+gem 'sentry-raven'
 
 # Search indexing
 gem 'sunspot_rails'

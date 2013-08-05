@@ -1,6 +1,7 @@
 # encoding: utf-8
 # language: no
 
+@log_in_user
 Egenskap: Ny artikkel med tilknyttet posisjon
 
   For at leksikonet skal få artikler med god kvalitet

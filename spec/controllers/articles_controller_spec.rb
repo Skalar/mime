@@ -3,6 +3,7 @@
 require 'spec_helper'
 
 describe ArticlesController do
+  login_user
 
   describe "mobile" do
     render_views
@@ -69,7 +70,7 @@ describe ArticlesController do
         flash[:notice].should_not be_nil
       end
       it "has IP adresse" do
-        assigns(:article).authors_or_ip.should == "0.0.0.0"
+        assigns(:article).authors_or_ip.should == "Navn Navnesen"
       end
     end
 

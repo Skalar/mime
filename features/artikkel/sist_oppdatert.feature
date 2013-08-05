@@ -6,7 +6,7 @@ Egenskap: Sist oppdatert
   Som en lokalinteressert person
   Vil jeg kunne se når artikkelen er sist oppdatert
 
-  @javascript
+  @javascript @log_in_user
   Scenario: sist oppdatert akkurat nå
     Gitt at jeg står på ny artikkel-siden
     Og jeg fyller inn "article[headword]" med "Xyzzy-tittel"
